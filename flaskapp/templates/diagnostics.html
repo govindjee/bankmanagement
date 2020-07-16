@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2 class="text-center">Add Diagnostics</h2><br>
+<div class="bg-white view">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th scope="col">Name of the test</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+      <td>
+        <form class="" style="width: 155px;" method="POST" action="">
+            <select type="text"  style="width: 100px; height: 35px;" placeholder="Search..." name="id" class=""   >
+                
+                <option value={{data.TestName}}>{{data.TestName}}</option>
+                
+                
+                {% for i in l %}
+                <option value={{i}}>{{i}}</option>
+                {% endfor %}
+               
+            </select>
+            <button type="submit" class="bg-dark text-white" name="btn" value="search1" style="width: 50px; height: 35px; border-radius: 12px; border: whitesmoke;"><i class="fa fa-search text-black"></i></button>
+        
+      </td>
+      {% if data %}
+      <td>{{data.Chargefortest}}</td>
+      {% endif %}
+    </tr>
+  </tbody>
+</table>
+</div>
+<button  type="submit" name="btn" value="add" class="btn btn-dark text-center" style="width: 100px; height: 50px; margin-left: 1130px; margin-top: -120px;">Add</button>
+
+<br><br><br><br>
+<button type="submit" name="btn" value="update" class="btn btn-dark text-center" style="width: 200px; height: 50px; margin-left: 450px;">Update</button>
+</form>
+
+{% endblock %}

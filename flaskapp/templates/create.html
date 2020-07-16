@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+<div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="POST">
+                            <h3 class="text-center text-black bold">Patient Registration</h3><br><br>
+
+
+                            <div class="row">
+                                <div class="col-md-4">Patient SSN ID*</div>
+                                    <div class="col-md-8">
+      
+                                    <input type="text" name="id" class="form-control" value="{{request.form.id}}">
+         
+                                    </div>
+                                    </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Patient Name*</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="name" class="form-control" value="{{request.form.name}}">
+                                    </div>
+                                </div><br>
+                                
+                                <div class="row">
+                                <div class="col-md-4">Patient Age*</div>
+                                    <div class="col-md-8">
+      
+                                    <input type="text" name="age" class="form-control" value="{{request.form.age}}">
+         
+                                    </div>
+                                    </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Date of Admission*</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="date" name="admission" class="form-control" value="{{request.form.admission}}">
+                                    </div>
+                                </div><br>
+                                    <div class="row">
+                                <div class="col-md-4">Type of bed*</div>
+                                    <div class="col-md-8">
+                                    <select id = "myList" name="bed" style="width: 320px; height: 35px;" value={{request.form.bed}}>
+                                            <option value = "General">General</option>
+                                            <option value = "Single">Single</option>
+                                            <option value = "Shared">Shared</option>
+                                        </select>
+          
+         
+                                    </div>
+                                    </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Address*</div>
+                                    <div class="col-md-8">
+                                    
+                                    <textarea type="text" name="address" class="form-control" value={{request.form.address}}></textarea><br>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                <div class="col-md-4">State*</div>
+                                    <div class="col-md-8">
+                                        <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select><br>
+                                        <script language="javascript">print_state("sts");</script>
+                                    </div>
+                                    </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">City*</div>
+                                    <div class="col-md-8">
+                                        <select id ="state" class="form-control" name="city" required ></select>
+                                    </div>
+                                </div><br>
+
+
+                                <div class="row">
+                                        <div class="col-md-4">Status</div>
+                                            <div class="col-md-8">
+                                            <select id = "myList" name="status" style="width: 320px; height: 35px;" value={{request.form.bed}}>
+                                                    <option value = "Active">Active</option>
+                                                    <option value = "Discharged">Discharged</option>
+                                                </select>
+                  
+                 
+                                            </div>
+                                            </div><br>
+
+                            
+                           <div class="form-group">
+                               <input type="submit" class="btn btn-dark btn-lg active" style="margin-left: 30px; border-radius: 15px;">
+                               <input type="submit" class="btn btn-dark btn-lg active" style="margin-left: 100px; border-radius: 15px; width: 100px;" value="Reset">
+                            </div> 
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

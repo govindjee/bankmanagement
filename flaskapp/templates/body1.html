@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block body %}
+<p>gello</p>
+<table>
+    {% set max_columns = 6 %}
+    {% set interval = jobs_list|length / max_columns  %}
+    {% set rows = interval|int + 1 %}    # +1 for the last/incomplete row
+    
+    {% for p in range(rows) %}
+    <tr>
+        {% for n in range(max_columns) %}
+            {% set cell_pos = (p * max_columns) + n %}
+            <td>{{ jobs_list[cell_pos] }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

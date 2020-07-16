@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2 class="text-center">Pharmacy</h2><br>
+<div class="bg-white view">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th scope="col">Patient ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Address</th>
+      <th scope="col">DOJ</th>
+      <th scope="col">Type of Room</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+          <form class="" method="POST" action="" style="width: 155px">
+            <input type="text"  style="width: 100px; height: 35px;" placeholder="Search..." name="id" class="" required  value={{request.form.id}} >
+            <button type="submit" class="bg-dark text-white" name="btn" value="search" style="width: 50px; height: 35px; border-radius: 12px; border: whitesmoke;"><i class="fa fa-search text-black"></i></button>
+          </form>
+      </td>
+      
+      <td>{{data.PatientName}}</td>
+      <td>{{data.Age}}</td>
+      <td>{{data.Address}}</td>
+      <td>{{data.DateofAdmission}}</td>
+      <td>{{data.Typeofbed}}</td>
+
+    </tr>
+  </tbody>
+ 
+</table>
+</div><br><br>
+
+
+<h2 class="text-center">Medicines Issued</h2><br>
+<div class="bg-white view">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      
+      <th scope="col">Medicine Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Rate</th>
+      <th scope="col">Amount</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for  d in data1 %}
+      
+       
+    <tr>
+     
+      <td>{{d.MedicineName}}</td>
+      <td>{{d.QuantityIssued}}</td>
+      <td><p>Rs.{{d.Rateofmedicine}}</p></td>
+       <td><p>Rs.{{d.QuantityIssued*d.Rateofmedicine}}</p></td>
+    </tr>
+    
+    {% endfor %}
+    
+  </tbody>
+</table>
+</div><br><br>
+
+<a href="/issuemedicine" ><button type="button" class="btn btn-dark text-center" style="width: 200px; height: 50px; margin-left: 450px;">Issue Medicines</button></a>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+<div>
+<h2 class="text-center">Issue Medicines</h2><br>
+<div class="bg-white view">
+    
+<table class="table table-bordered" >
+  <thead>
+    <tr class="bg-dark text-white">
+      <th scope="col">Medicine</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">rate</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+      <td>
+        <form class="" style="width: 155px;" method="POST" action="">
+            <input type="text"  style="width: 100px; height: 35px;" placeholder="Search..." name="name" class="" required  value={{request.form.name}} >
+            
+        
+      </td>
+      <td>
+        
+            <input type="text"  style="width: 100px; height: 35px;" placeholder="Search..." name="quantity" class="" required  value={{request.form.quantity}} >
+            <button type="submit" class="bg-dark text-white" name="btn" value="search" style="width: 50px; height: 35px; border-radius: 12px; border: whitesmoke;"><i class="fa fa-search text-black"></i></button>
+       
+      </td>
+    {% if m %}
+   
+      <td><p>Rs. {{m.rate}}</p></td>
+      <td>Rs. {{m.amnt}}</td>
+      {%endif %}
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<button  type="submit" id="add" class="btn btn-dark text-center" style="width: 100px; height: 50px;" name="btn" value="issue">Add</button>
+<center>
+<br><br><br><br>
+<button type="submit" name="btn" value="update" class="btn btn-dark text-center" style="width: 200px; height: 50px; ">Update</button>
+</center>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2 class="text-center">Patient Billing</h2><br>
+<div class="bg-white view">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th scope="col">Patient ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Address</th>
+      <th scope="col">DOJ</th>
+      <th scope="col">Date of discharge</th>
+      <th scope="col">Type of Room</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+          <form class="" method="POST" action="" style="width: 155px">
+            <input type="text"  style="width: 100px; height: 35px;" placeholder="Search..." name="id" class="" required  value={{request.form.id}} >
+            <button type="submit" class="bg-dark text-white" name="btn" value="search" style="width: 50px; height: 35px; border-radius: 12px; border: whitesmoke;"><i class="fa fa-search text-black"></i></button>
+          
+      </td>
+      
+      <td>{{data.PatientName}}</td>
+      <td>{{data.Age}}</td>
+      <td>{{data.Address}}</td>
+      <td>{{data.DateofAdmission}}</td>
+      <td>{{date2}}</td>
+      <td>{{data.Typeofbed}}</td>
+
+    </tr>
+  </tbody>
+ 
+</table>
+</div>
+{% if sum %}
+    <p style="margin-left: 550px; margin-top: 0px;"><b> NO. of days :  {{num}}</b></p>
+    <p style="margin-left: 850px; margin-top: -40px;"><b>Bill for Room :  Rs.{{sum}}</b></p>
+{%endif %}
+
+<br><br>
+<h2 class="text-center">Pharmacy Charges</h2><br>
+<div class="bg-white view" style="width: 800px; margin-left: 150px;">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      
+      <th scope="col">Medicine</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Rate</th>
+      <th scope="col">Amount</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for  d in data1  %}
+       {% set sum1=d.Rateofmedicine+sum1%}
+      
+    <tr>
+      <td>{{d.MedicineName}}</td>
+       <td>{{d.QuantityIssued}}</td>
+       <td>Rs.{{d.Rateofmedicine}}</td>
+       <td>Rs.{{d.Rateofmedicine*d.QuantityIssued}}</td>
+    </tr>
+          
+        {% endfor %}
+    
+  </tbody>
+</table>
+</div>
+<p style="margin-left: 580px;"><b>Bill for Pharmacy :</b></p>   
+<p style="margin-left: 750px; margin-top: -40px;"><b>Rs.{{sum1}}</b></p>
+
+
+<br><br><br>
+<h2 class="text-center">Diagnostics Conducted</h2><br>
+<div class="bg-white view" style="width: 600px; margin-left: 260px;">
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      
+      <th scope="col">Name of the test</th>
+      <th scope="col">Amount</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for  d in data2 %}
+      
+    <tr>
+      <td>{{d.TestName}}</td>
+       <td>Rs.{{d.Chargefortest}}</td>
+    </tr>
+    
+    {% endfor %}
+    
+  </tbody>
+</table>
+</div>
+
+{% if sum2 %}
+<p style="margin-left: 450px;"><b>Bill for Diagnostics : </b></p>
+<p style="margin-left: 650px; margin-top: -40px;"><b>Rs.{{sum2}}</b></p>
+{%endif %}
+<br><br><br>
+   <button type="submit" name="btn" value="confirm" class="btn btn-dark text-center" style="width: 150px; height: 50px; margin-left: 450px; border-radius: 20px;">Confirm</button><br><br>
+         {% if sum1 %}
+    <p style="margin-left: 700px; margin-top: -70px;"><b>Grant Total : </b></p>
+    <p style="margin-left: 810px; margin-top: -40px;"><b>Rs.{{sum1+sum+sum2}}</b></p>
+         {% endif %}
+       
+</form>
+{% endblock %}

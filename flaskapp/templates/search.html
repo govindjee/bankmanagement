@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-black bold">View Patient </h3><br><br>
+
+
+                            <div class="row">
+                                <div class="col-md-4">Patient ID*</div>
+                                <!-- <div class="col-md-8">
+                                <input type="text" name="id" class="form-control fa fa-search" value={{request.form.id}}>
+                                </div> -->
+                                <div class="col-md-8">
+                                <form class="example" style="width: 900px;">
+                                    <input type="text" style="width:260px" placeholder="Search.." name="id"  value={{request.form.id}}>
+                                    <button type="submit" name="btn" value="search" class="text-white bg-info" style="width: 50px; height: 30px;"><i class="fa fa-search text-black"></i></button>
+                                  </form>
+                                </div>
+                            </div><br>
+
+                                <div class="row">
+                                    <div class="col-md-4">Patient Name</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="name" class="form-control" value={% for m in request.form.name%}{{ m  }}{%endfor%}>
+                                    </div>
+                                </div><br>
+                                
+                                <div class="row">
+                                <div class="col-md-4">Patient Age</div>
+                                    <div class="col-md-8">
+      
+                                    <input type="text" name="age" class="form-control" value={{request.form.age}}>
+         
+                                    </div>
+                                    </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Date of Admission</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="admission" class="form-control" value={{request.form.admission}}></p>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                <div class="col-md-4">Type of bed</div>
+                                    <div class="col-md-8">
+                                        <input type="text" id = "myList" name="bed" style="width: 320px; height: 35px;" value={% for m in request.form.bed%}{{ m  }}{%endfor%}></input>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Address</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="address" class="form-control" value={% for m in request.form.address%}{{ m  }}{%endfor%}></input><br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">State</div>
+                                        <div class="col-md-8">
+                                            <input type="text" id="sts" name ="stt" class="form-control" value={% for m in request.form.stt%}{{ m  }}{%endfor%}></input><br>
+                                            
+                                        </div>
+                                        </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-4">City</div>
+                                        <div class="col-md-8">
+                                            <input type="text" id ="city" class="form-control"  name="city"  value={% for m in request.form.city%}{{ m  }}{%endfor%}></input>
+                                        </div>
+                                    </div><br>
+
+
+                                    <div class="row">
+                                        <div class="col-md-4">Status</div>
+                                            <div class="col-md-8">
+                                            <input type="text" id = "myList" name="status" style="width: 320px; height: 35px;" value={{request.form.status}}></input>
+                                        </div>
+                                    </div><br>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="POST">
+                            <h3 class="text-center text-black bold">Delete Patient </h3><br><br>
+
+
+                            <div class="row">
+                                <div class="col-md-4">Patient ID*</div>
+                                    <div class="col-md-8">
+      
+                                    <input type="text" name="id" class="form-control" value={{request.form.id}}>
+         
+                                    </div>
+                                    </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Patient Name</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="name" class="form-control" value={{request.form.name}}></p>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                <div class="col-md-4">Patient Age</div>
+                                    <div class="col-md-8">
+      
+                                    <input type="text" name="age" class="form-control" value={{request.form.age}}>
+         
+                                    </div>
+                                    </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Date of Admission</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="admission" class="form-control" value={{request.form.admission}}></p>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                <div class="col-md-4">Type of bed</div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="bed" id = "myList" style="width: 320px; height: 35px;" value={{request.form.bed}}></input>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Address</div>
+                                    <div class="col-md-8">
+                                    
+                                    <input type="text" name="address" class="form-control" value={{request.form.address}}></input><br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">State</div>
+                                        <div class="col-md-8">
+                                            <input type="text" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" value={{request.form.stt}}></input><br>
+                                            <script language="javascript">print_state("sts");</script>
+                                        </div>
+                                        </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-4">City</div>
+                                        <div class="col-md-8">
+                                            <input type="text" id ="state" class="form-control" value={{request.form.city}}></input>
+                                        </div>
+                                    </div><br>
+
+
+                                    <div class="row">
+                                        <div class="col-md-4">Status</div>
+                                            <div class="col-md-8">
+                                                <input type="text" id = "myList" name="status" style="width: 320px; height: 35px;" value={{request.form.status}}> </input>
+                                            </div>
+                                    </div><br>
+
+                            
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-dark btn-lg active" name="btn" role="button" aria-pressed="true" style="margin-left: 100px; border-radius: 15px;" value="Delete"></input>
+                                    </div>
+        
+                                    <div class="form-group" id="get">
+                                        <input type="submit" class="btn btn-dark btn-lg active" name="btn" role="button" aria-pressed="true" style="margin-left: 100px; width: 100px; border-radius: 15px;" value="Get"></input>
+                                    </div> 
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
